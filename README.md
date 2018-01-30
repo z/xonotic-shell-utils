@@ -26,7 +26,7 @@ echo -e "\nsource $(pwd)/xsu.sh" >> ~/.zshrc
 These helpers are for common pk3, or map related functions 
 
 
-#### pk3_cat <pattern> [directory|file]
+#### `pk3_cat <pattern> [directory|file]`
 
 The function will search a pk3 file, or iterate over a collection of files in a directory given an
 `egrep` pattern expression, and will output the contents of that file using `cat`.  This commmand
@@ -44,7 +44,7 @@ pk3_cat "(scripts).*shader" ~/.xonotic/data/dlcache | egrep "fern"
 ```
 
 
-#### pk3_search <pattern> [directory|file]
+#### `pk3_search <pattern> [directory|file]`
 
 The function will search a pk3 file, or iterate over a collection of files in a directory given an
 `egrep` pattern expression on the files with the pk3(s).  Will select current directory if no directory or file given.
@@ -54,7 +54,7 @@ pk3_search "fern.tga"
 ```
 
 
-#### pk3_cat_bsp <file>
+#### `pk3_cat_bsp <file>`
 
 This function will cat out the bsp contents of a bsp from a pk3... useful for searching strings in a
 BSP.  Used by pk3_get_bsp_ent.
@@ -64,7 +64,7 @@ pk3_cat_bsp ~/.xonotic/data/dlcache/resist-desaturation.pk3
 ```
 
 
-#### pk3_get_bsp_ent <file>
+#### `pk3_get_bsp_ent <file>`
 
 This function will export a .ent file from a bsp within a pk3.  Requires q3map2 in your path, or as
 an alias.
