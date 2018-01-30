@@ -25,6 +25,10 @@ echo -e "\nsource $(pwd)/xsu.sh" >> ~/.zshrc
 
 These helpers are for common pk3, or map related functions 
 
+#### `xsu [--help]`
+
+Prints the short help / quick reference for these functions
+
 
 #### `pk3_cat <pattern> [directory|file]`
 

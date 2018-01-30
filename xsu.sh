@@ -4,6 +4,23 @@
 # Usage: Call the functions by their names in your shell
 # License: MIT 2017, Tyler "-z-" Mulligan
 
+# xsu
+xsu() {
+    local option=${2}
+    local _help() {
+        echo "xonotic-shell-utils:
+
+pk3_cat <pattern> [directory|pk3_file]
+pk3_search <pattern> [directory|pk3_file]
+pk3_cat_bsp <pk3_file>
+pk3_get_bsp_ent <pk3_file>
+        "
+    }
+    case $1 in
+        *)  _help;;
+    esac
+}
+
 # pk3_cat "(maps).*mapinfo" |grep "settemp"
 pk3_cat() {
     local pattern=${1}
