@@ -7,7 +7,7 @@
 # xsu
 xsu() {
     local option=${2}
-    local _help() {
+    _help() {
         echo "xonotic-shell-utils:
 
 pk3_cat <pattern> [directory|pk3_file]
