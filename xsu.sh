@@ -8,18 +8,18 @@
 pk3_cat() {
     local pattern=${1}
     local pk3_path=${2:-.}
-    for f in $(find "${pk3_path}" -name "*.pk3"); do unzip -p ${f} -c $(unzip -l ${f} |grep -E ${pattern}) 2>/dev/null; done
+    for f in $(find "${pk3_path}" -name "*.pk3"); do unzip -p ${f} -c $(unzip -l ${f} 2>/dev/null |grep -E ${pattern}) 2>/dev/null; done
 }
 
 # pk3_search "fern.tga"
 pk3_search() {
     local pattern=${1}
     local pk3_path=${2:-.}
-    for f in $(find "${pk3_path}" -name "*.pk3"); do unzip -l ${f} |grep -E ${pattern} && echo "pattern matched in ${f}" 2>/dev/null; done
+    for f in $(find "${pk3_path}" -name "*.pk3"); do unzip -l ${f} 2>/dev/null |grep -E ${pattern} && echo "pattern matched in ${f}" 2>/dev/null; done
 }
 
-# cat_bsp ~/.xonotic/data/dlcache/resist-desaturation.pk3
-cat_bsp() {
+# pk3_cat_bsp ~/.xonotic/data/dlcache/resist-desaturation.pk3
+pk3_cat_bsp() {
     local pk3_name=${1}
     unzip -p ${pk3_name} $(unzip -l ${pk3_name} |grep "\.bsp" |awk '{ print $4 }' |head -n1)
 }
