@@ -47,7 +47,7 @@ pk3_get_bsp_ent() {
     local pk3_name=${1}
     local ent_name=${2:-${pk3_name}.ent}
     local tmp_bsp=${3:-/tmp/tmp.bsp}
-    cat_bsp ${pk3_name} > ${tmp_bsp} && q3map2 -exportents -onlyents ${tmp_bsp}
+    pk3_cat_bsp ${pk3_name} > ${tmp_bsp} && q3map2 -exportents -onlyents ${tmp_bsp}
     local tmp_ent=${tmp_bsp%.bsp}.ent
     mv -v ${tmp_ent} ${ent_name}
 }
