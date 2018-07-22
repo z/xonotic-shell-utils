@@ -47,7 +47,16 @@ pk3_get_bsp_ent() {
     local pk3_name=${1}
     local ent_name=${2:-${pk3_name}.ent}
     local tmp_bsp=${3:-/tmp/tmp.bsp}
-    pk3_cat_bsp ${pk3_name} > ${tmp_bsp} && q3map2 -exportents -onlyents ${tmp_bsp}
+    pk3_cat_bsp ${pk3_name} > ${tmp_bsp} && q3map2 -exportents -onlyents ${tmp_bsp} > /dev/null
     local tmp_ent=${tmp_bsp%.bsp}.ent
-    mv -v ${tmp_ent} ${ent_name}
+    mv ${tmp_ent} ${ent_name}
 }
+
+# pk3_cat_ent z-pillar1.pk3 && cat z-pillar1.pk3.ent |grep player_race
+pk3_cat_ent() {
+    local pk3_name=${1}
+    local pattern=${2}
+    if [[ ${1} == "" ]]; then echo "missing argument: pk3 filename"; fi
+    pk3_get_bsp_ent ${1} && cat ${1}.ent && rm ${1}.ent
+}
+
